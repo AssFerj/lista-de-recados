@@ -10,8 +10,43 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,500;1,100;1,200;1,500&display=swap" rel="stylesheet">
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     </head>
     <body>
+        <main class="view-heigh container-fluid text-center text-white bg-primary bg-gradient">
+            <div class="row d-flex">
+                <div class="col-5 view-heigh">
+                    <div class="row p-4 d-flex flex-column align-items-center justify-content-center">
+                        <div class="row">
+                            <h2>Bem Vindo(a)!</h2>
+                        </div>
+                        <div class="row">
+                            <lottie-player src="https://assets3.lottiefiles.com/private_files/lf30_kj1v7uim.json"  background="transparent"  speed="1"  style="width: 90%; height: 90%;"  loop  autoplay></lottie-player>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 view-heigh bg-white text-dark d-flex align-items-center">
+                    <div class="row p-4 flex-column">
+                        <div class="col-md mb-4">
+                            <h3 class="text-secondary">Acessar conta</h2>
+                        </div>
+                        <div class="input-group col-md">
+                            <input type="email" class="form-control" placeholder="E-mail" aria-label="Username">
+                            <input type="text" class="form-control" placeholder="Senha" aria-label="Server">
+                        </div>
+                        <div class="col-md my-3">
+                            <button class="btn btn-warning w-100 text-secondary" type="button">Entrar</button>
+                        </div>
+                        <div class="col-md d-flex justify-content-center">
+                            <a class="fs-6" href="">Criar conta</a>
+                            <p class="fs-6 mx-2 text-secondary">|</p>
+                            <a class="fs-6" href="">Esqueci a senha</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
         <script src="assets/js/bootstrap.bundle.js"></script>
     </body>
 </html>

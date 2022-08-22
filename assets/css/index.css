@@ -2,5 +2,12 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border: none;
+    list-style: none;
+    text-decoration: none !important;
+    font-size: 1.2rem;
     font-family: 'Poppins', sans-serif;
+}
+.view-heigh{
+    height: 100vh;
 }
