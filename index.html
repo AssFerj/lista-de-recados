@@ -26,13 +26,13 @@
                                 <h2 class="text-secondary">Bem Vindo(a)!</h2>
                                 <h3 class="text-secondary">Acessar conta</h2>
                             </div>
-                            <form action="" method="post">
+                            <form id="login-form">
                                 <div class="input-group col-md">
-                                    <input type="email" class="form-control" placeholder="E-mail" aria-label="Username">
-                                    <input type="text" class="form-control" placeholder="Senha" aria-label="Server">
+                                    <input type="email" class="form-control" placeholder="E-mail" aria-label="Eimail" id="email-ipt">
+                                    <input type="password" class="form-control" placeholder="Senha" aria-label="Senha" id="senha-ipt">
                                 </div>
                                 <div class="col-md my-3">
-                                    <button class="btn btn-warning w-100 text-secondary" type="button">Entrar</button>
+                                    <button class="btn btn-warning w-100 text-secondary" type="submit" id="btn-login">Entrar</button>
                                 </div>
                             </form>
                             <div class="col-md d-flex justify-content-center">
@@ -44,7 +44,7 @@
             </div>
 
         </main>
-        
+        <script src="assets/js/index.js"></script>
         <script src="assets/js/bootstrap.bundle.js"></script>
     </body>
 </html>
