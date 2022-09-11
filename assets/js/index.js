@@ -5,7 +5,7 @@ document.getElementById('login-form').addEventListener("submit", function(e){
     const email = document.getElementById('email-ipt').value;
     const senha = document.getElementById('senha-ipt').value;
 
-    const account = getAccount(email);
+    const account = JSON.parse(getAccount(email));
 
     if(!account){
         alert("Verifique o usuário ou a senha.");
@@ -54,6 +54,7 @@ document.getElementById('signUp-form').addEventListener("submit", function(e){
 
 function newUser(data){
     localStorage.setItem(data.login, JSON.stringify(data));
+    localStorage.setItem(data.senha, JSON.stringify(data));
 }
 
 function getAccount(key){
