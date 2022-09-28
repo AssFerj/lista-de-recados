@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Lista de Recados | Admin</title>
-
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	<link href="assets/css/app.css" rel="stylesheet">
@@ -39,9 +39,19 @@
 
 						<!-- Nav Item - Informações do usuário -->
 						<li class="nav-item dropdown no-arrow">
-							<a class="nav-link dropdown-toggle" href="" id="userDropdown">
-								<span class="mr-2 d-lg-inline text-gray-600">Assis Junior</span>
-							</a>
+
+							<div class="dropdown">
+								<button class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="username">
+								  Assis Júnior
+								</button>
+								<ul class="dropdown-menu">
+								  <li><a class="dropdown-item" type="submit" id="logout">Sair</a></li>
+								</ul>
+							  </div>
+
+							<!-- <a class="nav-link dropdown-toggle" href="" id="userDropdown">
+								<span class="mr-2 d-lg-inline text-gray-600" id="user-name">Assis Júnior</span>
+							</a> -->
 						</li>
 
 					</ul>
@@ -50,63 +60,7 @@
 				<!-- fim do Topbar -->
 
 				<!-- Início Conteúdo da Página -->
-				<div class="container-fluid">
-
-					<!-- Content Row -->
-					<div class="row">
-
-						<!-- Amount of Products in DB -->
-						<div class="col-md-4 mb-4">
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Total de Recados</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">135</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- $$$ of all products in DB -->
-						<div class="col-md-4 mb-4">
-							<div class="card border-left-success shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-success text-uppercase mb-1"> Amount in products</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">$546.456</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Amount of users in DB -->
-						<div class="col-md-4 mb-4">
-							<div class="card border-left-warning shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Users quantity
-											</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">38</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-user-check fa-2x text-gray-300"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="container">
 
 					<!-- Content Row -->
 					<div class="row">
@@ -116,11 +70,12 @@
 								<div class="card-header py-3">
 									<h6 class="m-0 font-weight-bold text-primary">Meus Recados</h6>
 								</div>
-								<div class="input-group px-3 mt-3">
-									<input type="text" class="form-control" placeholder="Descrição" aria-label="Descrição">
-									<input type="text" class="form-control" placeholder="Detalhamento" aria-label="Detalhamento">
-									<button type="button" class="btn btn-warning form-control">Adicionar</button>
-								  </div>
+								<form class="input-group px-3 mt-3" id="launch-task-form">
+									<input type="text" class="form-control" placeholder="Descrição" aria-label="Descrição" id="desc-ipt" required>
+									<input type="text" class="form-control" placeholder="Detalhamento" aria-label="Detalhamento" id="det-ipt" required>
+									<button type="submit" class="btn btn-success form-control" id="addTask">Adicionar</button>
+								</form>
+								<div class="px-4 text-danger" id="msg-erro"></div><!-- Listagem de erros -->
 								<div class="card-body">
 									<table class="table">
 										<thead>
@@ -131,19 +86,8 @@
 											<th scope="col">Ações</th>
 										  </tr>
 										</thead>
-										<tbody>
-										  <tr>
-											<th scope="row">1</th>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>@mdo</td>
-										  </tr>
-										  <tr>
-											<th scope="row">2</th>
-											<td>Jacob</td>
-											<td>Thornton</td>
-											<td>@fat</td>
-										  </tr>
+										<tbody id="tbody">
+										  
 										</tbody>
 									  </table>
 								</div>
@@ -151,26 +95,29 @@
 						</div>
 					</div>
 				</div>
-				<!-- /.container-fluid -->
+				<!-- /.container -->
 			</div>
 			<!-- Fim do Conteúdo Principal -->
 
-			<!-- Footer -->
-			<footer class="sticky-footer bg-white">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; <a href="http://assferj.github.io/curriculum-web" target="_blank" rel="noopener noreferrer">Assis Júnior</a></span>
-					</div>
-				</div>
-			</footer>
-			<!-- Fim do Footer -->
+			
 
 		</div>
 		<!-- Fim do Content Wrapper -->
 
 	</div>
 	<!-- Fim do Page Wrapper -->
-
+	<!-- Footer -->
+	<footer class="sticky-footer bg-white">
+		<div class="container my-auto">
+			<div class="copyright text-center my-auto">
+				<span>Copyright &copy; <a href="http://assferj.github.io/curriculum-web" target="_blank" rel="noopener noreferrer">Assis Júnior</a></span>
+			</div>
+		</div>
+	</footer>
+	<!-- Fim do Footer -->
+	<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+	<script src="/assets/js/index.js"></script>
 </body>
 
 </html>
