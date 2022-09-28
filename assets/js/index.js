@@ -7,7 +7,7 @@ let user = {
     password: null,
     recados: null
 }
-let updateUser = () => localStorage.setItem('list-users', JSON.stringify(user));
+let updateUser = () => localStorage.setItem('list-users', JSON.stringify(users));
 let users = JSON.parse(localStorage.getItem('list-users')) || [];
 
 let task = {
@@ -62,12 +62,8 @@ if(signUpForm){
 }
 
 function getAccount(key){
-    const account = localStorage.getItem(key)
-
-    if(account){
-        return JSON.parse(account);
-    }
-    return "";
+    const account = users.find(user => user.login == key);
+    return account;
 }
 
 //LOGIN NO SISTEMA
@@ -79,8 +75,9 @@ if(loginForm){
     
         const email = document.getElementById('email-ipt').value;
         const senha = document.getElementById('senha-ipt').value;
-    
+
         const account = getAccount(email);
+        console.log(account)
 
         if(!account){
             alert("Usuário não cadastrado!");
@@ -90,6 +87,7 @@ if(loginForm){
                 alert("Verifique o usuário ou a senha.");
                 return;
             }
+            localStorage.setItem('currentUser', JSON.stringify(account));
             window.location.href = "dashboard.html";
         }
     });
@@ -136,6 +134,7 @@ if(launchTaskForm){
 
 //READ TAREFAS
 function showTasks(){
+
     tBody.innerHTML = '';
     
     for(item of tasks){
@@ -205,5 +204,6 @@ function deleteTask(id){
 // LOGOUT DO SISTEMA
 document.getElementById('logout').addEventListener('click', logout);
 function logout(){
+    localStorage.removeItem('currentUser');
     window.location.href = "index.html";
 }
