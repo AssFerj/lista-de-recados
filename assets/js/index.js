@@ -56,7 +56,7 @@ if(signUpForm){
         updateUser(user);
 
         alert(`Olá ${nome} ${sobrenome}, sua conta foi criada com sucesso!`)
-        window.location.href = "dashboard.html";
+        window.location.href = "recados.html";
 
     })
 }
@@ -88,7 +88,7 @@ if(loginForm){
                 return;
             }
             localStorage.setItem('currentUser', JSON.stringify(account));
-            window.location.href = "dashboard.html";
+            window.location.href = "recados.html";
         }
     });
 }
@@ -144,7 +144,7 @@ function showTasks(){
         <td>${item.id}</td>
         <td>${item.description}</td>
         <td>${item.detail}</td>
-        <td>
+        <td class="d-flex">
             <button class="mx-2 btn btn-warning" onclick="editTask(${item.id})"><i class="bi bi-pencil-square"></i></button>
             <button class="mx-2 btn btn-danger" onclick="deleteTask(${item.id})"><i class="bi bi-trash3"></i></button>
         </td>

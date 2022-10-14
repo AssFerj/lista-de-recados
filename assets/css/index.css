@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     border: none;
-    list-style: none;
+    list-style: none !important;
     text-decoration: none !important;
     font-size: 1.2rem;
     font-family: 'Poppins', sans-serif;
