@@ -113,9 +113,17 @@ if(launchTaskForm){
         }
         
         if (!descIpt || descIpt.length == "") {
-            erros.push("<p>Descrição inválida</p>");
+            erros.push(`
+            <div class="alert alert-danger" role="alert">
+                Detalhamento inválida
+            </div>
+        `);
         }else if (!detIpt || detIpt == "") {
-            erros.push("<p>Detalhamento inválido</p>");
+            erros.push(`
+                <div class="alert alert-danger" role="alert">
+                    Detalhamento inválido
+                </div>
+            `);
         }else if (erros.length > 0) {
             divErro.innerHTML = erros.join(" ");
             return;
