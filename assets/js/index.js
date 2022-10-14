@@ -104,7 +104,7 @@ if(launchTaskForm){
         const detIpt = document.getElementById('det-ipt').value;
         const divErro = document.getElementById('msg-erro');
         const erros = [];
-        const id = tasks.length+1;
+        const id = Math.floor(Date.now() / 1000);
         
         task = {
             id: id,
