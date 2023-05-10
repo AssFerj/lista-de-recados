@@ -6,6 +6,8 @@ Projeto de fechamento de módulo do Programa Starter Fullstack da GrowDev - Mód
 - HTML 5
 - CSS 3
 - Javascript
+- Bootstrap
+- Localhost
 
 ### Páginas
 
